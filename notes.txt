@@ -1,0 +1,104 @@
+
+REQUIRES:
+
+xprop
+xdotool
+wmctrl
+
+bob=$(xdotool getactivewindow)
+active_pid=$(xdotool getwindowpid $bob)
+pkill -STOP $active_pid
+
+
+#!/bin/sh -e
+#
+pkill -CONT %1
+gotta figure out a way to store that...
+
+for all: 
+
+xdotool search --onlyvisible [name]
+
+      <mousebind button="Middle" action="Press">
+      <action name="execute">
+        <execute>pause/unpause</execute>
+      </action>
+
+        <action name="ToggleShade"/>
+      </mousebind>
+
+#######
+ps aux | awk '$8 == "T"' | awk '{print $2}'
+
+
+######
+Find stopped processes: 
+
+ps aux | awk '$8 == "T"'
+
+(and | awk '{print $2}'  to get pid
+
+############
+list all regular windows (#2 is desktop they're on)
+
+wmctrl -l | awk '$2 != "-1"' 
+
+and to get the window names...
+
+| cut -d' ' -f 5-
+
+
+###############
+for pid in $(ps aux | awk '$8 == "T"' |awk '{print $2}'); do kill -CONT $pid; done
+
+(except it terminated them?!?!)
+
+
+
+
+awk '{for(i=3;i<=NF;++i)print $i}'
+
+#bob=$(xdotool getactivewindow)
+#active_pid=$(xdotool getwindowpid $bob)
+#pkill -STOP $active_pid
+
+
+#!/bin/sh -e
+#
+pkill -CONT %1
+gotta figure out a way to store that...
+
+for all: 
+
+
+
+      <mousebind button="Middle" action="Press">
+      <action name="execute">
+        <execute>pause/unpause</execute>
+      </action>
+
+        <action name="ToggleShade"/>
+      </mousebind>
+
+
+######
+Find stopped processes: 
+
+ps aux | awk '$8 == "T"'
+
+(and | awk '{print $2}'  to get pid
+
+############
+list all regular windows (#2 is desktop they're on)
+
+
+
+and to get the window names...
+
+
+
+
+###############
+for pid in $(ps aux | awk '$8 == "T"' |awk '{print $2}'); do kill -CONT $pid; done
+
+(except it terminated them?!?!)
